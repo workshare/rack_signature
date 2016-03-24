@@ -32,11 +32,11 @@ module Rack
       env[SIGNATURE_HEADER]
     end
 
-    def timestamp(env=nil)
+    def timestamp(env)
       env[TIMESTAMP_HEADER]
     end
 
-    def signature_key(env=nil)
+    def signature_key(env)
       env[SIGNATURE_KEY_HEADER]
     end
 
@@ -58,7 +58,7 @@ module Rack
       }
     end
 
-    def signable(env=nil)
+    def signable(env)
       @signable ||= signable_extractor.call Rack::Request.new(env), signable_elms
     end
 
